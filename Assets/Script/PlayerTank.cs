@@ -26,6 +26,8 @@ public class PlayerTank : MonoBehaviour
     void Update()
     {
 
+        //Debug.Log("estoy en " + ScriptGrid.GetCell(xGridPlayer, zGridPlayer));
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             MovePlayerGrid(1);
@@ -94,6 +96,8 @@ public class PlayerTank : MonoBehaviour
             {
                 if (zGridPlayer + movement >= ScriptGrid.height
                 ||  zGridPlayer + movement < 0) { return; }
+                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[0] == 0) { return; }
+                
                 zGridPlayer += movement;
                 break;
             }
@@ -101,6 +105,8 @@ public class PlayerTank : MonoBehaviour
             {
                 if (xGridPlayer + movement >= ScriptGrid.width
                 ||  xGridPlayer + movement < 0) { return; }
+                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[1] == 0) { return; }
+                    
                 xGridPlayer += movement;
                 break;
             }
@@ -108,6 +114,8 @@ public class PlayerTank : MonoBehaviour
             {
                 if (zGridPlayer - movement < 0
                 ||  zGridPlayer - movement >= ScriptGrid.height) { return; }
+                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[2] == 0) { return; }
+
                 zGridPlayer -= movement;
                 break;
             }
@@ -115,6 +123,8 @@ public class PlayerTank : MonoBehaviour
             {
                 if (xGridPlayer - movement < 0
                 || xGridPlayer - movement >= ScriptGrid.width) { return; }
+                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[3] == 0) { return; }
+                    
                 xGridPlayer -= movement;
                 break;
             }

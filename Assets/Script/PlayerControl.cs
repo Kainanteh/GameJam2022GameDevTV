@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f,layer_mask))
             {
-                // Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                 Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
                 switch (hit.transform.name)
                 {
                     
