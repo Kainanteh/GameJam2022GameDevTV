@@ -31,6 +31,8 @@ public class Grid : MonoBehaviour
 		MapAllowDirections[0, 2] = new int[] { 1, 0, 1, 0 };
 		MapAllowDirections[0, 3] = new int[] { 1, 0, 1, 0 };
 		MapAllowDirections[0, 4] = new int[] { 1, 0, 1, 0 };
+		MapAllowDirections[0, 5] = new int[] { 0, 1, 1, 1 };
+		MapAllowDirections[1, 5] = new int[] { 0, 1, 1, 1 };
 
 
 		cellObject = new GameObject[height * width];
