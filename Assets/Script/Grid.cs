@@ -25,14 +25,32 @@ public class Grid : MonoBehaviour
 	void Awake()
 	{
 
-
-		MapAllowDirections[0, 0] = new int[] { 1, 0, 0, 0 };
+		// { N, E, S, W}
+		MapAllowDirections[0, 0] = new int[] { 1, 0, 1, 0 };
 		MapAllowDirections[0, 1] = new int[] { 1, 0, 1, 0 };
 		MapAllowDirections[0, 2] = new int[] { 1, 0, 1, 0 };
-		MapAllowDirections[0, 3] = new int[] { 1, 0, 1, 0 };
-		MapAllowDirections[0, 4] = new int[] { 1, 0, 1, 0 };
-		MapAllowDirections[0, 5] = new int[] { 0, 1, 1, 1 };
-		MapAllowDirections[1, 5] = new int[] { 0, 1, 1, 1 };
+		MapAllowDirections[0, 3] = new int[] { 0, 1, 1, 0 };
+
+        MapAllowDirections[1, 3] = new int[] { 0, 1, 0, 1 };
+        MapAllowDirections[2, 3] = new int[] { 0, 1, 1, 1 };
+        MapAllowDirections[3, 3] = new int[] { 0, 1, 1, 1 };
+        MapAllowDirections[4, 3] = new int[] { 0, 1, 1, 1 };
+        MapAllowDirections[5, 3] = new int[] { 0, 0, 1, 1 };
+        MapAllowDirections[5, 2] = new int[] { 1, 0, 1, 1 };
+        MapAllowDirections[5, 1] = new int[] { 1, 0, 1, 1 };
+        MapAllowDirections[2, 2] = new int[] { 1, 1, 1, 0 };
+        MapAllowDirections[3, 2] = new int[] { 1, 1, 1, 1 };
+        MapAllowDirections[4, 2] = new int[] { 1, 1, 1, 1 };
+        MapAllowDirections[2, 1] = new int[] { 1, 1, 1, 0 };
+        MapAllowDirections[3, 1] = new int[] { 1, 1, 1, 1 };
+        MapAllowDirections[4, 1] = new int[] { 1, 1, 1, 1 };
+        MapAllowDirections[2, 0] = new int[] { 1, 1, 1, 0 };
+        MapAllowDirections[3, 0] = new int[] { 1, 1, 0, 1 };
+        MapAllowDirections[4, 0] = new int[] { 1, 1, 0, 1 };
+        MapAllowDirections[5, 0] = new int[] { 1, 0, 0, 1 };
+    
+
+	
 
 
 		cellObject = new GameObject[height * width];
@@ -44,6 +62,8 @@ public class Grid : MonoBehaviour
 			for (int x = 0; x < width; x++)
 			{
 				Cell ScriptCell = CreateCell(x, z, i++);
+
+                ScriptCell.NumcellText.text = x + " " + z; 
 
 				if (MapAllowDirections[x, z] == null)
 				{ continue; }
