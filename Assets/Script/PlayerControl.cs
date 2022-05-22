@@ -8,8 +8,10 @@ public class PlayerControl : MonoBehaviour
     int layer_mask;
     PlayerTank PT_Script;
 
-    [HideInInspector]
+    
     public bool getCoffin = false;
+    public bool magicCoffing = false;
+
     public GameObject objectCoffin;
 
     private void Start() {
@@ -77,7 +79,7 @@ public class PlayerControl : MonoBehaviour
                         if (typeCC.Type == TypeCell.Cremator && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer )
                         {
                             CrematorScript crematorScript = hit.transform.gameObject.GetComponent<CrematorScript>();
-                            if (crematorScript.havecoffin == false && getCoffin == true)
+                            if (crematorScript.havecoffin == false && getCoffin == true && magicCoffing == false)
                             {
                                 crematorScript.coffinObject.SetActive(true);
                                 crematorScript.havecoffin = true;
@@ -94,6 +96,7 @@ public class PlayerControl : MonoBehaviour
                                     crematorScript.finishedcoffin = false;
                                     objectCoffin.SetActive(true);
                                     getCoffin = true;
+                                    magicCoffing = true;
                                     Debug.Log("Ha cogido un ataud magico");
                                 }
 
