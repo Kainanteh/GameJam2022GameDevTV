@@ -4547,6 +4547,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coffinObject: {fileID: 1135062186}
   havecoffin: 0
+  burningcoffin: 0
+  finishedcoffin: 0
+  timeToTask: 5
+  timeTask: 0
 --- !u!65 &1018093978
 BoxCollider:
   m_ObjectHideFlags: 0

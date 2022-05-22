@@ -74,16 +74,29 @@ public class PlayerControl : MonoBehaviour
                     {
                         TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer,
                         GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
-                        if (typeCC.Type == TypeCell.Cremator && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer && getCoffin == true)
+                        if (typeCC.Type == TypeCell.Cremator && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer )
                         {
                             CrematorScript crematorScript = hit.transform.gameObject.GetComponent<CrematorScript>();
-                            if (crematorScript.havecoffin == false)
+                            if (crematorScript.havecoffin == false && getCoffin == true)
                             {
                                 crematorScript.coffinObject.SetActive(true);
                                 crematorScript.havecoffin = true;
                                 objectCoffin.SetActive(false);
                                 getCoffin = false;
                                 Debug.Log("Ha dejado un ataud");
+                            }
+                            else if(crematorScript.havecoffin == true && getCoffin == false)
+                            {
+                                if (crematorScript.finishedcoffin == true)
+                                {
+                                    crematorScript.coffinObject.SetActive(false);
+                                    crematorScript.havecoffin = false;
+                                    crematorScript.finishedcoffin = false;
+                                    objectCoffin.SetActive(true);
+                                    getCoffin = true;
+                                    Debug.Log("Ha cogido un ataud magico");
+                                }
+
                             }
                         }
 
