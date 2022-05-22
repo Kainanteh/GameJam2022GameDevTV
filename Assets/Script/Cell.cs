@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum TypeCell { Default, CoffinSpawn }
+public enum TypeCell { Default, CoffinSpawn, Cremator }
 
 public class TypeCellClass
 {

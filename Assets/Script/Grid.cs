@@ -79,8 +79,14 @@ public class Grid : MonoBehaviour
 					ScriptCell.Mytype.TypeDirection = FaceDirection.South;
 
 				}
-		
-				try
+
+				if (x == 5 && z == 1)
+				{
+					ScriptCell.Mytype.Type = TypeCell.Cremator;
+					ScriptCell.Mytype.TypeDirection = FaceDirection.East;
+				}
+
+					try
 				{
 					ScriptCell.DirectionAllowed = new int[4];
 					ScriptCell.DirectionAllowed[0] = MapAllowDirections[x, z][0];

@@ -55,17 +55,41 @@ public class PlayerControl : MonoBehaviour
                     {
                         TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer, 
                             GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
-                        if (typeCC.Type == TypeCell.CoffinSpawn && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer)
+                        if (typeCC.Type == TypeCell.CoffinSpawn && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer && getCoffin == false)
                         {
                             CoffinSpawn coffinScript = hit.transform.gameObject.GetComponent<CoffinSpawn>();
-                            coffinScript.coffinObject.SetActive(false);
-                            objectCoffin.SetActive(true);
-                            getCoffin = true;
+                            if (coffinScript.havecoffin == true)
+                            {
+                                coffinScript.coffinObject.SetActive(false);
+                                coffinScript.havecoffin = false;
+                                objectCoffin.SetActive(true);
+                                getCoffin = true;
+                                Debug.Log("Ha cogido un ataud");
+                            }
                         }
 
                         break;
                     }
-                    
+                    case "Cremator":
+                    {
+                        TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer,
+                        GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
+                        if (typeCC.Type == TypeCell.Cremator && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer && getCoffin == true)
+                        {
+                            CrematorScript crematorScript = hit.transform.gameObject.GetComponent<CrematorScript>();
+                            if (crematorScript.havecoffin == false)
+                            {
+                                crematorScript.coffinObject.SetActive(true);
+                                crematorScript.havecoffin = true;
+                                objectCoffin.SetActive(false);
+                                getCoffin = false;
+                                Debug.Log("Ha dejado un ataud");
+                            }
+                        }
+
+                        break;
+                    }
+
                 }
             }
         }
