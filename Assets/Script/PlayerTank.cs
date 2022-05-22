@@ -10,7 +10,7 @@ public class PlayerTank : MonoBehaviour
     public int xGridPlayer = 0;
     public int zGridPlayer = 0;
 
-    public Grid ScriptGrid;
+
 
     public FaceDirection directionPlayer;
 
@@ -94,18 +94,18 @@ public class PlayerTank : MonoBehaviour
 
             case FaceDirection.North:
             {
-                if (zGridPlayer + movement >= ScriptGrid.height
+                if (zGridPlayer + movement >= GameManager.Instance.ScriptGrid.height
                 ||  zGridPlayer + movement < 0) { return; }
-                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[0] == 0) { return; }
+                if (GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[0] == 0) { return; }
                 
                 zGridPlayer += movement;
                 break;
             }
             case FaceDirection.East:
             {
-                if (xGridPlayer + movement >= ScriptGrid.width
+                if (xGridPlayer + movement >= GameManager.Instance.ScriptGrid.width
                 ||  xGridPlayer + movement < 0) { return; }
-                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[1] == 0) { return; }
+                if (GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[1] == 0) { return; }
                     
                 xGridPlayer += movement;
                 break;
@@ -113,8 +113,8 @@ public class PlayerTank : MonoBehaviour
             case FaceDirection.South:
             {
                 if (zGridPlayer - movement < 0
-                ||  zGridPlayer - movement >= ScriptGrid.height) { return; }
-                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[2] == 0) { return; }
+                ||  zGridPlayer - movement >= GameManager.Instance.ScriptGrid.height) { return; }
+                if (GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[2] == 0) { return; }
 
                 zGridPlayer -= movement;
                 break;
@@ -122,8 +122,8 @@ public class PlayerTank : MonoBehaviour
             case FaceDirection.West:
             {
                 if (xGridPlayer - movement < 0
-                || xGridPlayer - movement >= ScriptGrid.width) { return; }
-                if (ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[3] == 0) { return; }
+                || xGridPlayer - movement >= GameManager.Instance.ScriptGrid.width) { return; }
+                if (GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).DirectionAllowed[3] == 0) { return; }
                     
                 xGridPlayer -= movement;
                 break;
@@ -134,7 +134,7 @@ public class PlayerTank : MonoBehaviour
 
         //if (xGridPlayer < 0 || xGridPlayer >= ScriptGrid.height || zGridPlayer < 0 || zGridPlayer >= ScriptGrid.width) { return; }
 
-        MovePlayerObjectGrid(ScriptGrid.GetCell(xGridPlayer, zGridPlayer).transform.position);
+        MovePlayerObjectGrid(GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).transform.position);
         GameManager.Instance.managerAudio.PlayAudio("movePlayer2");
     }
 

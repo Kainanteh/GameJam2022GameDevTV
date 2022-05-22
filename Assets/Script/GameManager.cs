@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerTank ScriptPlayerTank;
     public PlayerControl ScriptPlayerControl;
+    public Grid ScriptGrid;
 
     private void Awake() 
     {

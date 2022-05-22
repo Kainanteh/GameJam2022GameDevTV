@@ -4,6 +4,10 @@ using UnityEngine;
 
 
 
+
+
+
+
 public class Grid : MonoBehaviour
 {
 
@@ -68,6 +72,14 @@ public class Grid : MonoBehaviour
 				if (MapAllowDirections[x, z] == null)
 				{ continue; }
 
+				if(x == 4 && z == 0)
+                {
+			
+					ScriptCell.Mytype.Type = TypeCell.CoffinSpawn;
+					ScriptCell.Mytype.TypeDirection = FaceDirection.South;
+
+				}
+		
 				try
 				{
 					ScriptCell.DirectionAllowed = new int[4];
