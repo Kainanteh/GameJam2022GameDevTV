@@ -12,7 +12,10 @@ public class PlayerControl : MonoBehaviour
     public bool getCoffin = false;
     public bool magicCoffing = false;
 
+    public bool getPerla = false;
+
     public GameObject objectCoffin;
+    public GameObject objectPerla;
 
     private void Start() {
         layer_mask = LayerMask.GetMask("Click");
@@ -74,12 +77,17 @@ public class PlayerControl : MonoBehaviour
                     }
                     case "Cremator":
                     {
-                        TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer,
-                        GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
-                        if (typeCC.Type == TypeCell.Cremator && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer )
+                        TypeCellClass typeCC = 
+                            GameManager.Instance.ScriptGrid.GetCell
+                                (GameManager.Instance.ScriptPlayerTank.xGridPlayer,
+                            GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
+                        if (typeCC.Type == TypeCell.Cremator && typeCC.TypeDirection == 
+                            GameManager.Instance.ScriptPlayerTank.directionPlayer )
                         {
-                            CrematorScript crematorScript = hit.transform.gameObject.GetComponent<CrematorScript>();
-                            if (crematorScript.havecoffin == false && getCoffin == true && magicCoffing == false)
+                            CrematorScript crematorScript = hit.transform.gameObject.
+                                GetComponent<CrematorScript>();
+                            if (crematorScript.havecoffin == false && getCoffin == true 
+                                && magicCoffing == false)
                             {
                                 crematorScript.coffinObject.SetActive(true);
                                 crematorScript.havecoffin = true;
@@ -91,7 +99,8 @@ public class PlayerControl : MonoBehaviour
                             {
                                 if (crematorScript.finishedcoffin == true)
                                 {
-                                    crematorScript.coffinObject.SetActive(false);
+                                    //crematorScript.coffinObject.SetActive(false);
+                                    crematorScript.coffinMagicoObject.SetActive(false);
                                     crematorScript.havecoffin = false;
                                     crematorScript.finishedcoffin = false;
                                     objectCoffin.SetActive(true);
@@ -105,6 +114,71 @@ public class PlayerControl : MonoBehaviour
 
                         break;
                     }
+                    case "ExtractorMagic":
+                    {
+                        TypeCellClass typeCC = 
+                            GameManager.Instance.ScriptGrid.GetCell
+                                (GameManager.Instance.ScriptPlayerTank.xGridPlayer,
+                            GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
+                        if (typeCC.Type == TypeCell.ExtractorMagic && typeCC.TypeDirection 
+                            == GameManager.Instance.ScriptPlayerTank.directionPlayer)
+                        {
+                            ExtractorMagicScript extractorScript = hit.transform.gameObject.
+                                GetComponent<ExtractorMagicScript>();
+                            if (extractorScript.havecoffin == false && getCoffin == true 
+                                && magicCoffing == true)
+                            {
+                                extractorScript.coffinMagicoObject.SetActive(true);
+                                extractorScript.havecoffin = true;
+                                objectCoffin.SetActive(false);
+                                getCoffin = false;
+                                Debug.Log("Ha dejado un ataud magico");
+
+                                extractorScript.setTrueOpenAnimation();
+                                extractorScript.perlaAlmaObject.SetActive(true);
+
+                            }
+                            else if(extractorScript.havecoffin == true && getCoffin == false && 
+                                extractorScript.haveperla == false)
+                            {
+                                
+                                extractorScript.perlaAlmaObject.SetActive(false);
+                                extractorScript.setFalseOpenAnimation();
+                                extractorScript.setTrueCloseAnimation();
+                                getPerla = true;
+                                objectPerla.SetActive(true);
+
+                            }
+                        }
+
+                        break;
+                    }
+                    case "GolemForge":
+                    {
+                        TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer,
+                            GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
+                        if (typeCC.Type == TypeCell.Golem && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer)
+                        {
+
+                            GolemForgeScript golemforgeScript = hit.transform.gameObject.
+                                GetComponent<GolemForgeScript>();
+                            if(golemforgeScript.haveperla == false && getPerla == true)
+                            {
+
+                                golemforgeScript.perlaAlmaObject.SetActive(true);
+                                golemforgeScript.haveperla = true;
+                                objectPerla.SetActive(false);
+                                getPerla = false;
+
+                            }
+
+                        }
+
+                        break;
+                    }
+                    
+                    
+
 
                 }
             }

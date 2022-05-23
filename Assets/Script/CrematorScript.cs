@@ -6,6 +6,7 @@ public class CrematorScript : MonoBehaviour
 {
 
     public GameObject coffinObject;
+    public GameObject coffinMagicoObject;
 
     public bool havecoffin = false;
     public bool burningcoffin = false;
@@ -28,6 +29,8 @@ public class CrematorScript : MonoBehaviour
                 timeTask = 0f;
                 burningcoffin = false;
                 finishedcoffin = true;
+                coffinObject.SetActive(false);
+                coffinMagicoObject.SetActive(true);
             }
 
         }
