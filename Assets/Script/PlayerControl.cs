@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f,layer_mask))
             {
-                //Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                
                 switch (hit.transform.name)
                 {
                     /*
@@ -134,12 +134,11 @@ public class PlayerControl : MonoBehaviour
                                 getCoffin = false;
                                 Debug.Log("Ha dejado un ataud magico");
 
-                                extractorScript.setTrueOpenAnimation();
-                                extractorScript.perlaAlmaObject.SetActive(true);
+                             
 
                             }
                             else if(extractorScript.havecoffin == true && getCoffin == false && 
-                                extractorScript.haveperla == false)
+                                extractorScript.haveperla == false && extractorScript.runepuzzle == true)
                             {
                                 
                                 extractorScript.perlaAlmaObject.SetActive(false);
@@ -147,6 +146,8 @@ public class PlayerControl : MonoBehaviour
                                 extractorScript.setTrueCloseAnimation();
                                 getPerla = true;
                                 objectPerla.SetActive(true);
+                                extractorScript.Reset();
+                                extractorScript.runepuzzle = false;
 
                             }
                         }
@@ -170,6 +171,29 @@ public class PlayerControl : MonoBehaviour
                                 objectPerla.SetActive(false);
                                 getPerla = false;
 
+                            }
+
+                        }
+
+                        break;
+                    }
+                    case "Rune":
+                    {
+
+                            // Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                            RuneScript runeScript = hit.transform.gameObject.GetComponent<RuneScript>();
+                        if(runeScript.extractorScript.havecoffin == true 
+                            && runeScript.extractorScript.haveperla == false)
+                        {
+    
+                            
+                            runeScript.extractorScript.ActiveLeftRight(runeScript.index);
+                            runeScript.extractorScript.CheckPuzzle();
+
+                            if(runeScript.extractorScript.runepuzzle == true)
+                            {
+                                runeScript.extractorScript.setTrueOpenAnimation();
+                                runeScript.extractorScript.perlaAlmaObject.SetActive(true);
                             }
 
                         }

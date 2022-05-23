@@ -15,6 +15,9 @@ public class ExtractorMagicScript : MonoBehaviour
 
     public Animator ExtractorMagicAnimator;
 
+    public RuneScript[] runes = new RuneScript[6];
+    public bool runepuzzle = false;
+
 
     public void setTrueDiscardAnimation()
     {
@@ -34,7 +37,6 @@ public class ExtractorMagicScript : MonoBehaviour
     public void setFalseOpenAnimation()
     {
         ExtractorMagicAnimator.SetBool("OpenCoffin", false);
-      
     }
 
     public void setTrueCloseAnimation()
@@ -47,5 +49,54 @@ public class ExtractorMagicScript : MonoBehaviour
  
     }
 
+    public void ActiveLeftRight(int index)
+    {
+        if (index == 0)
+        {
+
+            runes[index + 1].DeActive();
+
+        }
+        else if (index == runes.Length - 1)
+        {
+
+            runes[index - 1].DeActive();
+
+        }
+        else
+        {
+
+            runes[index + 1].DeActive();
+            runes[index - 1].DeActive();
+
+        }
+
+    }
+
+    public void CheckPuzzle()
+    {
+        int temp = 0;
+        for (int i = 0; i < runes.Length; i++)
+        {
+            if (runes[i].Active == true) { temp++; }
+        }
+        if (temp == runes.Length)
+        {
+            runepuzzle = true;
+        }
+
+    }
+
+    public void Reset()
+    {
+
+        for (int i = 0; i < runes.Length; i++)
+        {
+            runes[i].Desactive();
+        }
+
+        // runepuzzle = false;
+     
+    }
 
 }
