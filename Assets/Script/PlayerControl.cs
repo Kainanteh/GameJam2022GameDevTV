@@ -170,6 +170,7 @@ public class PlayerControl : MonoBehaviour
                                 golemforgeScript.haveperla = true;
                                 objectPerla.SetActive(false);
                                 getPerla = false;
+                                golemforgeScript.GolemAnimator.SetBool("victory", true);
 
                             }
 

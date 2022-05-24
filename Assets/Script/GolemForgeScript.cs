@@ -9,6 +9,6 @@ public class GolemForgeScript : MonoBehaviour
   
     public bool haveperla = false;
 
-    
+    public Animator GolemAnimator;
 
 }
