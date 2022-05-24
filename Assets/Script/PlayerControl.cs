@@ -181,8 +181,8 @@ public class PlayerControl : MonoBehaviour
                     case "Rune":
                     {
 
-                            // Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
-                            RuneScript runeScript = hit.transform.gameObject.GetComponent<RuneScript>();
+                        // Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                        RuneScript runeScript = hit.transform.gameObject.GetComponent<RuneScript>();
                         if(runeScript.extractorScript.havecoffin == true 
                             && runeScript.extractorScript.haveperla == false)
                         {
