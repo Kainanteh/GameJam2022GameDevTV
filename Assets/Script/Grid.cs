@@ -97,6 +97,11 @@ public class Grid : MonoBehaviour
                     ScriptCell.Mytype.Type = TypeCell.Golem;
                     ScriptCell.Mytype.TypeDirection = FaceDirection.North;
                 }
+				if (x == 0 && z == 0)
+                {
+                    ScriptCell.Mytype.Type = TypeCell.Lever;
+                    ScriptCell.Mytype.TypeDirection = FaceDirection.East;
+                }
 
 
 				try

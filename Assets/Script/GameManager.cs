@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public PlayerTank ScriptPlayerTank;
     public PlayerControl ScriptPlayerControl;
     public Grid ScriptGrid;
-
+    public CoffinSpawn coffinSpawnScript;
     
 
     private void Awake() 

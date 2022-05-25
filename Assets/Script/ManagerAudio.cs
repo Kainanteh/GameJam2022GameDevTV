@@ -36,6 +36,16 @@ public class ManagerAudio : MonoBehaviour
                 index = 2;
                 break;
             }
+            case "putGolemSoul":
+            {
+                index = 3;
+                break;
+            }
+            case "runePress":
+            {
+                index = 4;
+                break;
+            }
         }
 
 

@@ -32,32 +32,10 @@ public class PlayerControl : MonoBehaviour
                 
                 switch (hit.transform.name)
                 {
-                    /*
-                    case "W":
-                    {
-                        PT_Script.MovePlayerGrid(1);
-                        break;
-                    }
-                    case "A":
-                    {
-                        PT_Script.directionPlayer = PT_Script.ChangePlayerDirection(FaceDirection.West);
-                        PT_Script.ChangePlayerDirectionObject();
-                        break;
-                    }
-                    case "S":
-                    {
-                        PT_Script.MovePlayerGrid(-1);
-                        break;
-                    }
-                    case "D":
-                    {
-                        PT_Script.directionPlayer = PT_Script.ChangePlayerDirection(FaceDirection.East);
-                        PT_Script.ChangePlayerDirectionObject();
-                        break;
-                    }
-                    */
+
                     case "AtaudesSpawn":
                     {
+
                         TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer, 
                             GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
                         if (typeCC.Type == TypeCell.CoffinSpawn && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer && getCoffin == false)
@@ -77,6 +55,7 @@ public class PlayerControl : MonoBehaviour
                     }
                     case "Cremator":
                     {
+                        
                         TypeCellClass typeCC = 
                             GameManager.Instance.ScriptGrid.GetCell
                                 (GameManager.Instance.ScriptPlayerTank.xGridPlayer,
@@ -117,6 +96,7 @@ public class PlayerControl : MonoBehaviour
                     }
                     case "ExtractorMagic":
                     {
+
                         TypeCellClass typeCC = 
                             GameManager.Instance.ScriptGrid.GetCell
                                 (GameManager.Instance.ScriptPlayerTank.xGridPlayer,
@@ -157,6 +137,7 @@ public class PlayerControl : MonoBehaviour
                     }
                     case "GolemForge":
                     {
+
                         TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer,
                             GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
                         if (typeCC.Type == TypeCell.Golem && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer)
@@ -172,6 +153,7 @@ public class PlayerControl : MonoBehaviour
                                 objectPerla.SetActive(false);
                                 getPerla = false;
                                 golemforgeScript.GolemAnimator.SetBool("victory", true);
+                                GameManager.Instance.managerAudio.PlayAudio("putGolemSoul");
 
                             }
 
@@ -181,16 +163,16 @@ public class PlayerControl : MonoBehaviour
                     }
                     case "Rune":
                     {
-
-                        // Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                        
                         RuneScript runeScript = hit.transform.gameObject.GetComponent<RuneScript>();
                         if(runeScript.extractorScript.havecoffin == true 
                             && runeScript.extractorScript.haveperla == false)
                         {
     
-                            
                             runeScript.extractorScript.ActiveLeftRight(runeScript.index);
                             runeScript.extractorScript.CheckPuzzle();
+
+                            GameManager.Instance.managerAudio.PlayAudio("runePress");
 
                             if(runeScript.extractorScript.runepuzzle == true)
                             {
@@ -202,13 +184,29 @@ public class PlayerControl : MonoBehaviour
 
                         break;
                     }
-                    
-                    
+                    case "Lever":
+                    {
 
+                        TypeCellClass typeCC = GameManager.Instance.ScriptGrid.GetCell(GameManager.Instance.ScriptPlayerTank.xGridPlayer,
+                            GameManager.Instance.ScriptPlayerTank.zGridPlayer).Mytype;
+                        if (typeCC.Type == TypeCell.Lever && typeCC.TypeDirection == GameManager.Instance.ScriptPlayerTank.directionPlayer)
+                        {
 
+                            LeverScript leverScript = hit.transform.gameObject.GetComponent<LeverScript>();
+                            leverScript.setTrueLeverAnimation();
+                        
+                            GameManager.Instance.coffinSpawnScript.setTrueCoffinSpawnAnimation();
+                            GameManager.Instance.coffinSpawnScript.havecoffin = true;
+
+                        }
+
+                        break;
+                    }
                 }
             }
         }
     }
-
 }
+
+
+// Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
