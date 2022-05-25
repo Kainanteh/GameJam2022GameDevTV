@@ -15,6 +15,8 @@ public class CrematorScript : MonoBehaviour
     public float timeToTask = 10f;
     public float timeTask = 0f;
 
+    public Animator CrematorAnimator;
+
     private void Update()
     {
 
@@ -35,6 +37,11 @@ public class CrematorScript : MonoBehaviour
 
         }
 
+    }
+
+    public void setTrueCrematorAnimation()
+    {
+        CrematorAnimator.SetBool("crematorCoffin", true);
     }
 
 }

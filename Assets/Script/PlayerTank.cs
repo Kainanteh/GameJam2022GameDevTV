@@ -37,10 +37,10 @@ public class PlayerTank : MonoBehaviour
             directionPlayer = ChangePlayerDirection(FaceDirection.West);
             ChangePlayerDirectionObject();
         }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            MovePlayerGrid(-1);
-        }
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+            // MovePlayerGrid(-1);
+        // }
         if (Input.GetKeyDown(KeyCode.D))
         {
             directionPlayer = ChangePlayerDirection(FaceDirection.East);
@@ -53,12 +53,12 @@ public class PlayerTank : MonoBehaviour
             
         // }
 
-        if (Input.anyKeyDown)
-        {
-            //PrintPlayerPositionGrid();
-            //Debug.Log(ScriptGrid.GetCell(xGridPlayer,zGridPlayer).name);
+        // if (Input.anyKeyDown)
+        // {
+        //     //PrintPlayerPositionGrid();
+        //     //Debug.Log(ScriptGrid.GetCell(xGridPlayer,zGridPlayer).name);
 
-        }
+        // }
 
         if(movingPlayer == true)
         {

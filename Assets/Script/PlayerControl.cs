@@ -69,7 +69,7 @@ public class PlayerControl : MonoBehaviour
                                 coffinScript.havecoffin = false;
                                 objectCoffin.SetActive(true);
                                 getCoffin = true;
-                                Debug.Log("Ha cogido un ataud");
+                                //Debug.Log("Ha cogido un ataud");
                             }
                         }
 
@@ -93,7 +93,8 @@ public class PlayerControl : MonoBehaviour
                                 crematorScript.havecoffin = true;
                                 objectCoffin.SetActive(false);
                                 getCoffin = false;
-                                Debug.Log("Ha dejado un ataud");
+                                //Debug.Log("Ha dejado un ataud");
+                                crematorScript.setTrueCrematorAnimation();
                             }
                             else if(crematorScript.havecoffin == true && getCoffin == false)
                             {
@@ -106,7 +107,7 @@ public class PlayerControl : MonoBehaviour
                                     objectCoffin.SetActive(true);
                                     getCoffin = true;
                                     magicCoffing = true;
-                                    Debug.Log("Ha cogido un ataud magico");
+                                    //Debug.Log("Ha cogido un ataud magico");
                                 }
 
                             }
@@ -132,7 +133,7 @@ public class PlayerControl : MonoBehaviour
                                 extractorScript.havecoffin = true;
                                 objectCoffin.SetActive(false);
                                 getCoffin = false;
-                                Debug.Log("Ha dejado un ataud magico");
+                                //Debug.Log("Ha dejado un ataud magico");
 
                              
 
