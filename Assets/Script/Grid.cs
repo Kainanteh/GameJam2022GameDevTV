@@ -37,24 +37,27 @@ public class Grid : MonoBehaviour
 
         MapAllowDirections[1, 3] = new int[] { 0, 1, 0, 1 };
         MapAllowDirections[2, 3] = new int[] { 0, 1, 1, 1 };
-        MapAllowDirections[3, 3] = new int[] { 0, 1, 1, 1 };
+        
         MapAllowDirections[4, 3] = new int[] { 0, 1, 1, 1 };
         MapAllowDirections[5, 3] = new int[] { 0, 0, 1, 1 };
         MapAllowDirections[5, 2] = new int[] { 1, 0, 1, 1 };
         MapAllowDirections[5, 1] = new int[] { 1, 0, 1, 1 };
-        MapAllowDirections[2, 2] = new int[] { 1, 1, 1, 0 };
-        MapAllowDirections[3, 2] = new int[] { 1, 1, 1, 1 };
-        MapAllowDirections[4, 2] = new int[] { 1, 1, 1, 1 };
+        
+        //MapAllowDirections[3, 2] = new int[] { 1, 1, 1, 1 };
+
         MapAllowDirections[2, 1] = new int[] { 1, 1, 1, 0 };
-        MapAllowDirections[3, 1] = new int[] { 1, 1, 1, 1 };
+
         MapAllowDirections[4, 1] = new int[] { 1, 1, 1, 1 };
         MapAllowDirections[2, 0] = new int[] { 1, 1, 1, 0 };
         MapAllowDirections[3, 0] = new int[] { 1, 1, 0, 1 };
         MapAllowDirections[4, 0] = new int[] { 1, 1, 0, 1 };
         MapAllowDirections[5, 0] = new int[] { 1, 0, 0, 1 };
     
-
-	
+		MapAllowDirections[3, 2] = new int[] { 0, 0, 0, 0 };
+		MapAllowDirections[3, 3] = new int[] { 0, 1, 0, 1 };
+		MapAllowDirections[2, 2] = new int[] { 1, 0, 1, 0 };
+		MapAllowDirections[4, 2] = new int[] { 1, 1, 1, 0 };
+		MapAllowDirections[3, 1] = new int[] { 0, 1, 1, 1 };
 
 
 		cellObject = new GameObject[height * width];
