@@ -23,7 +23,7 @@ public class Grid : MonoBehaviour
 
 
 
-	int[,][] MapAllowDirections = new int[6,6][];
+	public int[,][] MapAllowDirections = new int[6,6][];
 	
 
 	void Awake()

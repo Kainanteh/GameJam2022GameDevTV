@@ -136,6 +136,12 @@ public class PlayerTank : MonoBehaviour
 
         MovePlayerObjectGrid(GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).transform.position);
         GameManager.Instance.managerAudio.PlayAudio("movePlayer2");
+
+        if(xGridPlayer == 3 && zGridPlayer == 2)
+        {
+            GameManager.Instance.elevatorScript.setTrueElevatorElevateAnimation();
+        }
+
     }
 
     void MovePlayerObjectGrid(Vector3 positionCell)

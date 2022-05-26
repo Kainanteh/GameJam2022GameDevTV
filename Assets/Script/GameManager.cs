@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerControl ScriptPlayerControl;
     public Grid ScriptGrid;
     public CoffinSpawn coffinSpawnScript;
-    
+    public ElevatorScript elevatorScript;
 
     private void Awake() 
     {

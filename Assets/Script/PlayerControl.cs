@@ -154,6 +154,7 @@ public class PlayerControl : MonoBehaviour
                                 getPerla = false;
                                 golemforgeScript.GolemAnimator.SetBool("victory", true);
                                 GameManager.Instance.managerAudio.PlayAudio("putGolemSoul");
+                                
 
                             }
 

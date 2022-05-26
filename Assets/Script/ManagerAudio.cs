@@ -46,6 +46,16 @@ public class ManagerAudio : MonoBehaviour
                 index = 4;
                 break;
             }
+            case "RISE":
+            {
+                index = 5;
+                break;
+            }
+            case "ATMOS":
+            {
+                index = 6;
+                break;
+            }
         }
 
 
