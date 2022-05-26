@@ -31,4 +31,11 @@ public class ElevatorScript : MonoBehaviour
         GameManager.Instance.ScriptPlayerTank.transform.parent = this.transform;
     }
 
+    public void ToBlack()
+    {
+
+        GameManager.Instance.screenBlackScript.setTrueScreenBlackAnimation();
+
+    }
+
 }
