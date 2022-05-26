@@ -17,13 +17,18 @@ public class ElevatorScript : MonoBehaviour
     public void setTrueElevatorElevateAnimation()
     {
         ElevatorAnimator.SetBool("elevate", true);
-        GameManager.Instance.ScriptPlayerTank.transform.parent = this.transform;
+        
         GameManager.Instance.managerAudio.PlayAudio("RISE");
     }
 
     public void PlayAtmos()
     {
         GameManager.Instance.managerAudio.PlayAudio("ATMOS");
+    }
+
+    public void parentElevator()
+    {
+        GameManager.Instance.ScriptPlayerTank.transform.parent = this.transform;
     }
 
 }
