@@ -5,8 +5,15 @@ using UnityEngine;
 public class ManagerAudio : MonoBehaviour
 {
 
+    [System.Serializable]
+    public struct audiosVol {
+        public AudioClip audioClip;
+        public float volumen;
+    }
 
-    public AudioClip[] audios;
+
+    public audiosVol[] AudiosConVolumen;
+    //public AudioClip[] audios;
     private AudioSource audioSource;
 
     private void Awake() 
@@ -60,8 +67,10 @@ public class ManagerAudio : MonoBehaviour
 
 
         if(index == -1){return;}
-        audioSource.PlayOneShot(audios[index]);
-        
+        //audioSource.PlayOneShot(audios[index]);
+        audioSource.volume = AudiosConVolumen[index].volumen;
+        audioSource.PlayOneShot(AudiosConVolumen[index].audioClip);
+
     }
 
 
