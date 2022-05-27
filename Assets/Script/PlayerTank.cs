@@ -25,8 +25,7 @@ public class PlayerTank : MonoBehaviour
 
     void Update()
     {
-
-        //Debug.Log("estoy en " + ScriptGrid.GetCell(xGridPlayer, zGridPlayer));
+        if(GameManager.Instance.elevatorScript.PlayerIn == true) { return; }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -47,18 +46,7 @@ public class PlayerTank : MonoBehaviour
             ChangePlayerDirectionObject();
         }
 
-        // if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) ||
-        //    Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
-        // {
-            
-        // }
-
-        // if (Input.anyKeyDown)
-        // {
-        //     //PrintPlayerPositionGrid();
-        //     //Debug.Log(ScriptGrid.GetCell(xGridPlayer,zGridPlayer).name);
-
-        // }
+   
 
         if(movingPlayer == true)
         {
@@ -131,15 +119,14 @@ public class PlayerTank : MonoBehaviour
 
         }
 
-
-        //if (xGridPlayer < 0 || xGridPlayer >= ScriptGrid.height || zGridPlayer < 0 || zGridPlayer >= ScriptGrid.width) { return; }
-
         MovePlayerObjectGrid(GameManager.Instance.ScriptGrid.GetCell(xGridPlayer, zGridPlayer).transform.position);
         GameManager.Instance.managerAudio.PlayAudio("movePlayer2");
 
         if(xGridPlayer == 3 && zGridPlayer == 2)
         {
             GameManager.Instance.elevatorScript.setTrueElevatorElevateAnimation();
+            this.transform.position = new Vector3(6.00177956f, 0, 4.00000286f);
+            //GameManager.Instance.elevatorScript.PlayerIn = true;
         }
 
     }

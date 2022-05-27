@@ -7,7 +7,8 @@ public class ElevatorScript : MonoBehaviour
   
     public Animator ElevatorAnimator;
 
-
+    public Transform PlayerT;
+    public bool PlayerIn = false;
 
     public void setTrueElevatorFenceAnimation()
     {
@@ -26,9 +27,9 @@ public class ElevatorScript : MonoBehaviour
         GameManager.Instance.managerAudio.PlayAudio("ATMOS");
     }
 
-    public void parentElevator()
+    public void playerInElevator()
     {
-        GameManager.Instance.ScriptPlayerTank.transform.parent = this.transform;
+        GameManager.Instance.elevatorScript.PlayerIn = true;
     }
 
     public void ToBlack()
@@ -41,6 +42,21 @@ public class ElevatorScript : MonoBehaviour
     public void PlayAudioElevate()
     {
         GameManager.Instance.managerAudio.PlayAudio("elevate");
+    }
+
+    private void Update()
+    {
+        if(PlayerIn == true)
+        {
+            PlayerT.position = new Vector3(6.00177956f, this.transform.position.y , 4.00000286f);
+        }
+    }
+
+    public void ExitGame()
+    {
+
+        GameManager.Instance.Exit();
+
     }
 
 }
