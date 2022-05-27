@@ -125,7 +125,7 @@ public class PlayerTank : MonoBehaviour
         if(xGridPlayer == 3 && zGridPlayer == 2)
         {
             GameManager.Instance.elevatorScript.setTrueElevatorElevateAnimation();
-            this.transform.position = new Vector3(6.00177956f, 0, 4.00000286f);
+       
             //GameManager.Instance.elevatorScript.PlayerIn = true;
         }
 
