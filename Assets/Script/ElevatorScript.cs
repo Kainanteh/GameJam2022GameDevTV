@@ -38,4 +38,9 @@ public class ElevatorScript : MonoBehaviour
 
     }
 
+    public void PlayAudioElevate()
+    {
+        GameManager.Instance.managerAudio.PlayAudio("elevate");
+    }
+
 }

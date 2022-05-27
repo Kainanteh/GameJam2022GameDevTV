@@ -48,6 +48,11 @@ public class PlayerControl : MonoBehaviour
                                 objectCoffin.SetActive(true);
                                 getCoffin = true;
                                 //Debug.Log("Ha cogido un ataud");
+                                GameManager.Instance.managerAudio.PlayAudio("getcoffin");
+                            }
+                            else
+                            {
+                                GameManager.Instance.managerAudio.PlayAudio("error");
                             }
                         }
 
@@ -74,6 +79,7 @@ public class PlayerControl : MonoBehaviour
                                 getCoffin = false;
                                 //Debug.Log("Ha dejado un ataud");
                                 crematorScript.setTrueCrematorAnimation();
+                                GameManager.Instance.managerAudio.PlayAudio("leavecoffin");
                             }
                             else if(crematorScript.havecoffin == true && getCoffin == false)
                             {
@@ -87,8 +93,13 @@ public class PlayerControl : MonoBehaviour
                                     getCoffin = true;
                                     magicCoffing = true;
                                     //Debug.Log("Ha cogido un ataud magico");
+                                    GameManager.Instance.managerAudio.PlayAudio("getcoffin");
                                 }
 
+                            }
+                            else
+                            {
+                                GameManager.Instance.managerAudio.PlayAudio("error");
                             }
                         }
 
@@ -114,6 +125,7 @@ public class PlayerControl : MonoBehaviour
                                 objectCoffin.SetActive(false);
                                 getCoffin = false;
                                 //Debug.Log("Ha dejado un ataud magico");
+                                GameManager.Instance.managerAudio.PlayAudio("leavecoffin");
 
                              
 
@@ -130,6 +142,10 @@ public class PlayerControl : MonoBehaviour
                                 extractorScript.Reset();
                                 extractorScript.runepuzzle = false;
 
+                            }
+                            else
+                            {
+                                GameManager.Instance.managerAudio.PlayAudio("error");
                             }
                         }
 
@@ -157,6 +173,10 @@ public class PlayerControl : MonoBehaviour
                                 
 
                             }
+                            else
+                            {
+                                GameManager.Instance.managerAudio.PlayAudio("error");
+                            }
 
                         }
 
@@ -182,6 +202,10 @@ public class PlayerControl : MonoBehaviour
                             }
 
                         }
+                        else
+                        {
+                            GameManager.Instance.managerAudio.PlayAudio("error");
+                        }
 
                         break;
                     }
@@ -203,6 +227,11 @@ public class PlayerControl : MonoBehaviour
 
                         break;
                     }
+                    // default:
+                    // {
+                    //     GameManager.Instance.managerAudio.PlayAudio("error");
+                    //     break;
+                    // }
                 }
             }
         }

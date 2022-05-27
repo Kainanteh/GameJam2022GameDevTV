@@ -63,6 +63,41 @@ public class ManagerAudio : MonoBehaviour
                 index = 6;
                 break;
             }
+            case "elevate":
+            {
+                index = 7;
+                break;
+            }
+            case "getcoffin":
+            {
+                index = 8;
+                break;
+            }
+            case "leavecoffin":
+            {
+                index = 9;
+                break;
+            }
+            case "opencoffin":
+            {
+                index = 10;
+                break;
+            }
+            case "lever":
+            {
+                index = 11;
+                break;
+            }
+            case "golemoutrail":
+            {
+                index = 12;
+                break;
+            }
+            case "error":
+            {
+                index = 13;
+                break;
+            }
         }
 
 

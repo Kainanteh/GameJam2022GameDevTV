@@ -49,6 +49,11 @@ public class ExtractorMagicScript : MonoBehaviour
  
     }
 
+    public void PlayOpenCoffin()
+    {
+        GameManager.Instance.managerAudio.PlayAudio("opencoffin");
+    }
+
     public void ActiveLeftRight(int index)
     {
         if (index == 0)

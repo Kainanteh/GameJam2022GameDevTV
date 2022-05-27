@@ -17,4 +17,9 @@ public class GolemForgeScript : MonoBehaviour
         GolemForgeAnimator.SetBool("golemout", true);
     }
 
+    public void PlayGolemOutRail()
+    {
+        GameManager.Instance.managerAudio.PlayAudio("golemoutrail");
+    }
+
 }
