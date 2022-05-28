@@ -81,7 +81,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 49.933334
+    m_StopTime: 49.883335
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -253,7 +253,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.0833333
+  - time: 2.8
     functionName: PlayAtmos
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -267,7 +267,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 49.933334
+  - time: 45.016666
     functionName: ExitGame
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -56,6 +56,7 @@ public class ElevatorScript : MonoBehaviour
     {
 
         GameManager.Instance.Exit();
+        Debug.Log("Salida");
 
     }
 
