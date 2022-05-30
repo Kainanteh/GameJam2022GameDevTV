@@ -18,7 +18,10 @@ public class ElevatorScript : MonoBehaviour
     public void setTrueElevatorElevateAnimation()
     {
         ElevatorAnimator.SetBool("elevate", true);
-        
+    }
+
+    public void PlayRise()
+    {
         GameManager.Instance.managerAudio.PlayAudio("RISE");
     }
 

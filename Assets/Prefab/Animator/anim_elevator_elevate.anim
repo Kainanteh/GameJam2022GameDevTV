@@ -239,6 +239,13 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: PlayRise
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.55
     functionName: playerInElevator
     data: 
@@ -253,7 +260,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.8
+  - time: 7.5333333
     functionName: PlayAtmos
     data: 
     objectReferenceParameter: {fileID: 0}
